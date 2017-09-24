@@ -1,15 +1,13 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 
-import Example from '../../src'
+import Bodymovin from '../../src'
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>react-bodymovin Demo</h1>
-      <Example/>
-    </div>
-  }
-}
+const Demo = () => (
+  <div>
+    <h1>react-bodymovin Demo</h1>
+    <Bodymovin/>
+  </div>
+)
 
 render(<Demo/>, document.querySelector('#demo'))
