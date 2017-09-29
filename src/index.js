@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import bodymovin from 'bodymovin';
-import { lifecycle } from 'recompose';
+import bodymovin from 'bodymovin'
+import { lifecycle } from 'recompose'
 
 export default class BodyMovin extends Component {
   componentDidMount() {
@@ -17,7 +17,7 @@ export default class BodyMovin extends Component {
     return (
       <div
         style={{ width: '100px' }}
-        ref={(element) => { this.target = element; }}
+        ref={(element) => { this.target = element }}
       />
     )
   }

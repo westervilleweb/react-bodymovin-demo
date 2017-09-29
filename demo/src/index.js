@@ -1,10 +1,8 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
-
+import React, { Component } from 'react'
+import { render } from 'react-dom'
 import Bodymovin from '../../src'
-import animationData from '../../src/checked_done_data';
+import animationData from './checked_done_animation'
 
-console.log(animationData);
 const Demo = () => (
   <div>
     <h1>react-bodymovin Demo</h1>
