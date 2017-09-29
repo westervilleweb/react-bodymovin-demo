@@ -1,27 +1,24 @@
-import React from 'react'
-import { lifecycle } from 'recompose';
+import React, { Component } from 'react'
 import bodymovin from 'bodymovin';
+import { lifecycle } from 'recompose';
 
-let bodymovinRef = null;
-let animationData = null;
-
-const Bodymovin = ({animation}) => {
-  animationData = animation;
-  return (
-    <div id='bodymovin' ref={(element) => { bodymovinRef = element; }} style={{width: '100px'}}></div>
-  );
-}
-
-const lifecycleHooks = lifecycle({
-  componentDidMount: () => {
-    console.log(animationData);
+export default class BodyMovin extends Component {
+  componentDidMount() {
     bodymovin.loadAnimation({
-      container: bodymovinRef,
-      renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData,
+      renderer: 'svg',
+      container: this.target,
+      animationData: this.props.animation,
     })
   }
-})
-export default lifecycleHooks(Bodymovin);
+
+  render() {
+    return (
+      <div
+        style={{ width: '100px' }}
+        ref={(element) => { this.target = element; }}
+      />
+    )
+  }
+}
