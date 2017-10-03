@@ -1,24 +1,60 @@
-import React, { Component } from 'react'
-import bodymovin from 'bodymovin'
-import { lifecycle } from 'recompose'
+import React, { Component } from 'react';
+import bodymovin from 'bodymovin';
+import { lifecycle } from 'recompose';
 
-export default class BodyMovin extends Component {
+class BodyMovin extends Component {
   componentDidMount() {
-    bodymovin.loadAnimation({
-      loop: true,
-      autoplay: true,
+    const {
+      loop,
+      autoplay,
+      animation: animationData,
+      bodymovinStyle
+    } = this.props;
+
+    this.animation = bodymovin.loadAnimation({
+      loop: this.propsfalse,
+      autoplay,
       renderer: 'svg',
       container: this.target,
-      animationData: this.props.animation,
-    })
+      animationData: this.props.animation
+    });
+
+    this.animation.addEventListener('loopComplete', () => {
+      if (!this.props.loop) {
+        this.animation.stop();
+      }
+    });
+  }
+
+  play() {
+    this.animation.play();
+  }
+
+  playSegment(index = 0) {
+    this.animation.playSegment(index);
+  }
+
+  stop() {
+    this.animation.stop();
   }
 
   render() {
     return (
       <div
-        style={{ width: '100px' }}
-        ref={(element) => { this.target = element }}
+        style={this.props.bodymovinStyle}
+        ref={element => {
+          this.target = element;
+        }}
       />
-    )
+    );
   }
 }
+
+BodyMovin.defaultProps = {
+  loop: false,
+  autoplay: false,
+  play: false,
+  bodymovinStyle: { width: '300px', height: '300px', background: '#000' }
+};
+
+export default BodyMovin;

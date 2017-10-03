@@ -1,13 +1,38 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom'
-import Bodymovin from '../../src'
-import animationData from './checked_done_animation'
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import Bodymovin from '../../src';
+import animationData from './liftoff-animation';
 
-const Demo = () => (
-  <div>
-    <h1>react-bodymovin Demo</h1>
-    <Bodymovin animation={animationData} />
-  </div>
-)
+class Demo extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-render(<Demo/>, document.querySelector('#demo'))
+  render() {
+    const play = () => {
+      this.bodymovin.animation.play();
+    };
+
+    return (
+      <div>
+        <h1>react-bodymovin Demo</h1>
+        <Bodymovin
+          animation={animationData}
+          ref={bodymovin => {
+            this.bodymovin = bodymovin;
+          }}
+        />
+        <button
+          onClick={() => {
+            this.bodymovin.animation.play();
+          }}
+        >
+          Play
+        </button>
+        <button onClick={() => this.bodymovin.animation.stop()}>Stop</button>
+      </div>
+    );
+  }
+}
+
+render(<Demo />, document.querySelector('#demo'));
