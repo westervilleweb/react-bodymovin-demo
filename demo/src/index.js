@@ -43,13 +43,6 @@ class Demo extends Component {
                 this.bodymovin = bodymovin;
               }}
             />
-            <button
-              className="btn-reset buttonLaunch"
-              onClick={() => {
-                this.bodymovin.animation.play();
-                document.getElementById('launchAudio').play();
-              }}
-            />
           </div>
           <div className="home" />
           <div className="bottom-bar" />
