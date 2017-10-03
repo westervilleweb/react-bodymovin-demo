@@ -1,0 +1,15 @@
+.btn-reset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+.btn-reset::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+.btn-reset:-moz-focusring {
+  outline: 1px dotted;
+}

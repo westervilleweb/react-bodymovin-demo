@@ -1,0 +1,7 @@
+.buttonLaunch {
+  background-image: url('../../public/button.svg');
+  height: 80px;
+  width: 250px;
+  margin: -140px auto 0 auto;
+  display: block;
+}

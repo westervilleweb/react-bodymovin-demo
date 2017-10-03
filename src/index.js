@@ -58,7 +58,7 @@ BodyMovin.defaultProps = {
   loop: false,
   autoplay: false,
   play: false,
-  bodymovinStyle: { width: '600px', height: '600px', background: '#000' }
+  bodymovinStyle: { width: '100%', height: '100%', background: '#000' }
 };
 
 export default BodyMovin;
