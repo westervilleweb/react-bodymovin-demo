@@ -16,6 +16,9 @@ class Demo extends Component {
     return (
       <div>
         <h1>react-bodymovin Demo</h1>
+        <audio id="launchAudio">
+          <source src="public/launch.mp3" type="audio/ogg" />
+        </audio>
         <Bodymovin
           animation={animationData}
           ref={bodymovin => {
@@ -25,6 +28,7 @@ class Demo extends Component {
         <button
           onClick={() => {
             this.bodymovin.animation.play();
+            document.getElementById('launchAudio').play();
           }}
         >
           Play

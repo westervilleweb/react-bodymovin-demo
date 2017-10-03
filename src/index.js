@@ -26,6 +26,10 @@ class BodyMovin extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.animation.destroy();
+  }
+
   play() {
     this.animation.play();
   }
@@ -54,7 +58,7 @@ BodyMovin.defaultProps = {
   loop: false,
   autoplay: false,
   play: false,
-  bodymovinStyle: { width: '300px', height: '300px', background: '#000' }
+  bodymovinStyle: { width: '600px', height: '600px', background: '#000' }
 };
 
 export default BodyMovin;
